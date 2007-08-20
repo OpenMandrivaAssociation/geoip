@@ -134,8 +134,8 @@ rm -rf %{buildroot}
 %{_bindir}/geoipupdate
 %dir %{_datadir}/GeoIP/
 %{_datadir}/GeoIP/GeoIP.dat
-%{_datadir}/man/man1/geoiplookup.1*
-%{_datadir}/man/man1/geoipupdate.1*
+%{_mandir}/man1/geoiplookup.1*
+%{_mandir}/man1/geoipupdate.1*
 
 %files -n %{libname}
 %defattr(-,root,root)
