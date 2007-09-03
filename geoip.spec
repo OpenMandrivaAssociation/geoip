@@ -5,16 +5,17 @@
 
 %define libname %mklibname geoip %{major}
 %define libname1 %mklibname geoipupdate %{updatemajor}
+%define develname %mklibname geoip -d
 
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
-Version:	1.4.1
-Release:	%mkrel 3
+Version:	1.4.3
+Release:	%mkrel 1
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
-Source0:	http://www.maxmind.com/download/geoip/api/c/%{oname}-%{version}.tar.bz2
-Source1:	http://www.maxmind.com/download/geoip/database/GeoIP.dat.bz2
+Source0:	http://www.maxmind.com/download/geoip/api/c/%{oname}-%{version}.tar.gz
+Source1:	http://www.maxmind.com/download/geoip/database/GeoIP.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 BuildRequires:	zlib-devel
 BuildRequires:	libtool
@@ -66,15 +67,16 @@ This module can be used to automatically select the geographically closest
 mirror, to analyze your web server logs to determine the countries of your
 visitors, for credit card fraud detection, and for software export controls.
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Headers and libraries needed for GeoIP development
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Requires:	%{libname1} = %{version}
 Provides:	lib%{name}-devel = %{version}
 Provides:	%{oname}-devel = %{version}
+Obsoletes:	%{mklibname geoip 1 -d}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 GeoIP is a C library that enables the user to find the country that any IP
 address or hostname originates from. It uses a file based database that is
 accurate as of March 2003. This database simply contains IP blocks as keys,
@@ -90,7 +92,7 @@ visitors, for credit card fraud detection, and for software export controls.
 
 %setup -q -n %oname-%{version}
 
-bzip2 -cd %{SOURCE1} > data/GeoIP.dat
+zcat %{SOURCE1} > data/GeoIP.dat
 cp %{SOURCE2} LICENSE.txt
 
 %build
@@ -145,11 +147,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/libGeoIPUpdate.so.%{updatemajor}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/lib*.so
 %{_libdir}/lib*.la
 %{_libdir}/lib*.a
 %{_includedir}/*
-
-
