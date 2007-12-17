@@ -20,7 +20,6 @@ Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 BuildRequires:	zlib-devel
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 GeoIP is a C library that enables the user to find the country that any IP
