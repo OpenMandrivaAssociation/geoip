@@ -10,7 +10,7 @@
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
 Version:	1.4.4
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
@@ -20,7 +20,7 @@ Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 BuildRequires:	zlib-devel
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 GeoIP is a C library that enables the user to find the country that any IP
