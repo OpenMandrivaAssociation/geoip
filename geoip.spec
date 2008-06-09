@@ -116,13 +116,21 @@ rm -rf %{buildroot}
 #gw path fix man page
 perl -pi -e "s^%buildroot^^" %buildroot%_mandir/man1/geoipupdate.1
 
+%if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %post -n %{libname1} -p /sbin/ldconfig
+%endif
 
+%if %mdkversion < 200900
 %postun -n %{libname1} -p /sbin/ldconfig
+%endif
 
 %clean
 rm -rf %{buildroot}
