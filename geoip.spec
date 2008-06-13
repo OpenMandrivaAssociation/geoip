@@ -10,7 +10,7 @@
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
 Version:	1.4.4
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
