@@ -9,9 +9,9 @@
 
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
-Version:	1.4.5
+Version:	1.4.6
 Release:	%mkrel 1
-License:	LGPL
+License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
 Source0:	http://www.maxmind.com/download/geoip/api/c/%{oname}-%{version}.tar.gz
@@ -145,6 +145,7 @@ rm -rf %{buildroot}
 %{_bindir}/geoiplookup6
 %{_datadir}/GeoIP
 %{_mandir}/man1/geoiplookup.1*
+%{_mandir}/man1/geoiplookup6.1*
 %{_mandir}/man1/geoipupdate.1*
 
 %files -n %{libname}
