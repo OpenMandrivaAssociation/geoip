@@ -10,13 +10,15 @@
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
 Version:	1.4.6
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
 Source0:	http://www.maxmind.com/download/geoip/api/c/%{oname}-%{version}.tar.gz
 Source1:	http://www.maxmind.com/download/geoip/database/GeoIP.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
+Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+Source4:	http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
 BuildRequires:	zlib-devel
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
@@ -94,6 +96,8 @@ visitors, for credit card fraud detection, and for software export controls.
 
 zcat %{SOURCE1} > data/GeoIP.dat
 cp %{SOURCE2} LICENSE.txt
+zcat %{SOURCE3} > data/GeoLiteCity.dat
+zcat %{SOURCE4} > data/GeoIPASNum.dat
 
 %build
 rm -rf configure autom4te.cache
@@ -115,6 +119,9 @@ rm -rf %{buildroot}
 %makeinstall
 #gw path fix man page
 perl -pi -e "s^%buildroot^^" %buildroot%_mandir/man1/geoipupdate.1
+
+install -m0644 data/GeoLiteCity.dat %{buildroot}%{_datadir}/GeoIP/
+install -m0644 data/GeoIPASNum.dat %{buildroot}%{_datadir}/GeoIP/
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
