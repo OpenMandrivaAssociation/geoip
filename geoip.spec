@@ -10,7 +10,7 @@
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
 Version:	1.4.6
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
@@ -122,7 +122,7 @@ rm -rf %{buildroot}
 perl -pi -e "s^%buildroot^^" %buildroot%_mandir/man1/geoipupdate.1
 
 mkdir -p %{buildroot}%{_sysconfdir}/cron.monthly
-install -m755 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.monthly/geoip
+install -m755 %{SOURCE5} %{buildroot}%{_sysconfdir}/cron.monthly/geoip
 install -m0644 data/GeoLiteCity.dat %{buildroot}%{_datadir}/GeoIP/
 install -m0644 data/GeoIPASNum.dat %{buildroot}%{_datadir}/GeoIP/
 
