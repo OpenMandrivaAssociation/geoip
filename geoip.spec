@@ -10,7 +10,7 @@
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
 Version:	1.4.6
-Release:	%mkrel 3
+Release:	%mkrel 5
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
@@ -19,6 +19,7 @@ Source1:	http://www.maxmind.com/download/geoip/database/GeoIP.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 Source4:	http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
+Source5:	geoip.contrab
 BuildRequires:	zlib-devel
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
@@ -120,6 +121,8 @@ rm -rf %{buildroot}
 #gw path fix man page
 perl -pi -e "s^%buildroot^^" %buildroot%_mandir/man1/geoipupdate.1
 
+mkdir -p %{buildroot}%{_sysconfdir}/cron.monthly
+install -m755 %{SOURCE4} %{buildroot}%{_sysconfdir}/cron.monthly/geoip
 install -m0644 data/GeoLiteCity.dat %{buildroot}%{_datadir}/GeoIP/
 install -m0644 data/GeoIPASNum.dat %{buildroot}%{_datadir}/GeoIP/
 
@@ -150,10 +153,12 @@ rm -rf %{buildroot}
 %{_bindir}/geoiplookup
 %{_bindir}/geoipupdate
 %{_bindir}/geoiplookup6
-%{_datadir}/GeoIP
+%config(noreplace) %{_datadir}/GeoIP
 %{_mandir}/man1/geoiplookup.1*
 %{_mandir}/man1/geoiplookup6.1*
 %{_mandir}/man1/geoipupdate.1*
+%{_sysconfdir}/cron.monthly/geoip
+
 
 %files -n %{libname}
 %defattr(-,root,root)
