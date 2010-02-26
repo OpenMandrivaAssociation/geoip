@@ -15,7 +15,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
 Source0:	http://www.maxmind.com/download/geoip/api/c/%{oname}-%{version}.tar.gz
-Source1:	http://www.maxmind.com/download/geoip/database/GeoIP.dat.gz
+Source1:	http://www.maxmind.com/download/geoip/database/%{oname}.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 Source4:	http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
