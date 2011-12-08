@@ -10,7 +10,7 @@
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
 Version:	1.4.8
-Release:	%mkrel 1
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://www.maxmind.com/app/c
@@ -21,9 +21,7 @@ Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 Source4:	http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
 Source5:	geoip.contrab
 BuildRequires:	zlib-devel
-BuildRequires:	libtool
-BuildRequires:	autoconf2.5
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf automake libtool
 
 %description
 GeoIP is a C library that enables the user to find the country that any IP
@@ -73,7 +71,7 @@ visitors, for credit card fraud detection, and for software export controls.
 %package -n	%{develname}
 Summary:	Headers and libraries needed for GeoIP development
 Group:		Development/C
-Requires:	%{libname} = %{version}
+Requires:	%{libname} >= %{version}
 Requires:	%{libname1} = %{version}
 Provides:	lib%{name}-devel = %{version}
 Provides:	%{oname}-devel = %{version}
@@ -126,27 +124,10 @@ install -m755 %{SOURCE5} %{buildroot}%{_sysconfdir}/cron.monthly/geoip
 install -m0644 data/GeoLiteCity.dat %{buildroot}%{_datadir}/GeoIP/
 install -m0644 data/GeoIPASNum.dat %{buildroot}%{_datadir}/GeoIP/
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%post -n %{libname1} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname1} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanup
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files
-%defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog README TODO LICENSE.txt
 %config(noreplace) %{_sysconfdir}/GeoIP.conf
 %config(noreplace) %{_sysconfdir}/GeoIP.conf.default
@@ -159,18 +140,12 @@ rm -rf %{buildroot}
 %{_mandir}/man1/geoipupdate.1*
 %{_sysconfdir}/cron.monthly/geoip
 
-
 %files -n %{libname}
-%defattr(-,root,root)
 %{_libdir}/libGeoIP.so.%{major}*
 
 %files -n %{libname1}
-%defattr(-,root,root)
 %{_libdir}/libGeoIPUpdate.so.%{updatemajor}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_libdir}/lib*.a
 %{_includedir}/*
