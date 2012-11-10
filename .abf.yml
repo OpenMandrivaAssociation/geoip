@@ -1,0 +1,7 @@
+sources:
+  "GeoIP-1.4.8.tar.gz:"	7bafb9918e3c35a6ccc71bb14945245d45c4b796
+  "GeoIPASNum.dat.gz:"	b795064a647523ede190e86f287e7cbe08b73d4c
+  "geoip.contrab:"	7c5955c253a357163065a82b725b4e16fc89be11
+  "GeoIP.dat.gz:"	aa501e6a260e8ecfb53a5c944172143009d7e606
+  "GeoLiteCity.dat.gz:"	70e2ed04e71d64f447f0300a79e9f9137a54dad6
+  "LICENSE.txt:"	55c3b3f75de01f524d3351f12098ed836bbc2e08
