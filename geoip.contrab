@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Source networking configuration.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ ${NETWORKING} = "no" ] && exit 0
+
+wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz -O /tmp/GeoIP.dat.gz
+wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz -O /tmp/GeoLiteCity.dat.gz
+
+cd /tmp
+gunzip GeoIP.dat.gz
+gunzip GeoLiteCity.dat.gz
+mv -f /tmp/GeoIP.dat /usr/share/GeoIP/GeoIP.dat
+mv -f /tmp/GeoLiteCity.dat /usr/share/GeoIP/GeoLiteCity.dat
+
