@@ -8,8 +8,8 @@
 
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
-Version:	1.4.8
-Release:	4
+Version:	1.5.1
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.maxmind.com/app/c
@@ -115,4 +115,5 @@ install -m0644 data/GeoIPASNum.dat %{buildroot}%{_datadir}/GeoIP/
 %files -n %{devname}
 %{_libdir}/lib*.so
 %{_includedir}/*
+%{_libdir}/pkgconfig/*.pc
 

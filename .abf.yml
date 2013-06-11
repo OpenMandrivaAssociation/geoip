@@ -1,5 +1,7 @@
+removed_sources:
+  GeoIP-1.4.8.tar.gz: 7bafb9918e3c35a6ccc71bb14945245d45c4b796
 sources:
-  "GeoIP-1.4.8.tar.gz": 7bafb9918e3c35a6ccc71bb14945245d45c4b796
-  "GeoIP.dat.gz": aa501e6a260e8ecfb53a5c944172143009d7e606
-  "GeoIPASNum.dat.gz": b795064a647523ede190e86f287e7cbe08b73d4c
-  "GeoLiteCity.dat.gz": 70e2ed04e71d64f447f0300a79e9f9137a54dad6
+  GeoIP-1.5.1.tar.gz: 36b211ad1857431772f811b126422aea6b68a122
+  GeoIP.dat.gz: aa501e6a260e8ecfb53a5c944172143009d7e606
+  GeoIPASNum.dat.gz: b795064a647523ede190e86f287e7cbe08b73d4c
+  GeoLiteCity.dat.gz: 70e2ed04e71d64f447f0300a79e9f9137a54dad6
