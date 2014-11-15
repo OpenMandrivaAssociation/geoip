@@ -6,12 +6,12 @@
 
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
-Version:	1.6.2
+Version:	1.6.3
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.maxmind.com/app/c
-Source0:	http://www.maxmind.com/download/geoip/api/c/%{oname}-%{version}.tar.gz
+Source0:	https://github.com/maxmind/geoip-api-c/releases/download/v%{version}/GeoIP-%{version}.tar.gz
 Source1:	http://www.maxmind.com/download/geoip/database/%{oname}.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.xz
@@ -83,8 +83,7 @@ mkdir -p %{buildroot}%{_sysconfdir}/cron.monthly
 mkdir -p %{buildroot}%{_datadir}/GeoIP
 
 install -m755 %{SOURCE5} %{buildroot}%{_sysconfdir}/cron.monthly/geoip
-install -m0644 data/GeoLiteCity.dat %{buildroot}%{_datadir}/GeoIP/
-install -m0644 data/GeoIPASNum.dat %{buildroot}%{_datadir}/GeoIP/
+install -m0644 data/*.dat %{buildroot}%{_datadir}/GeoIP/
 
 %files
 %doc AUTHORS COPYING ChangeLog README.md TODO LICENSE.txt
