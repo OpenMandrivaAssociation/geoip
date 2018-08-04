@@ -14,7 +14,7 @@ Url:		http://www.maxmind.com/app/c
 Source0:	https://github.com/maxmind/geoip-api-c/releases/download/v%{version}/GeoIP-%{version}.tar.gz
 Source1:	http://www.maxmind.com/download/geoip/database/%{oname}.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
-Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.xz
+Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 Source4:	http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
 Source5:	geoip.contrab
 Source6:	http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
@@ -58,7 +58,7 @@ This package contains the development files for %{name}.
 
 zcat %{SOURCE1} > data/GeoIP.dat
 cp %{SOURCE2} LICENSE.txt
-xzcat %{SOURCE3} > data/GeoLiteCity.dat
+zcat %{SOURCE3} > data/GeoLiteCity.dat
 zcat %{SOURCE4} > data/GeoIPASNum.dat
 zcat %{SOURCE6} > data/GeoIPv6.dat
 
@@ -73,7 +73,7 @@ libtoolize --copy --force; aclocal; automake --gnu --add-missing --copy; autocon
 
 %check
 #gw disable tests if there's no network
-if ping -c 1 abf.rosalinux.ru; then
+if ping -c 1 www.google.com; then
 make check
 fi
 
