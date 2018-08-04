@@ -87,7 +87,7 @@ install -m755 %{SOURCE5} %{buildroot}%{_sysconfdir}/cron.monthly/geoip
 install -m0644 data/*.dat %{buildroot}%{_datadir}/GeoIP/
 
 %files
-%doc AUTHORS COPYING ChangeLog README.md TODO LICENSE.txt
+%doc AUTHORS COPYING ChangeLog README.md LICENSE.txt
 %{_bindir}/geoiplookup
 %{_bindir}/geoiplookup6
 %config(noreplace) %{_datadir}/GeoIP
