@@ -2,5 +2,5 @@ sources:
   GeoIP.dat.gz: 1342a88b7ec340f7047f34de5ed722ac37c38fe0
   GeoIPASNum.dat.gz: 4ec0df2fd67f7d17d581ad5c1b96aa87d6c838e8
   GeoIPv6.dat.gz: d561804cda35506d2064232e33a1cda54daed9f2
-  GeoLiteCity.dat.xz: bb7eca125c87d4df7d41035d3eaafd8be9da9e18
+  GeoLiteCity.dat.gz: bb7eca125c87d4df7d41035d3eaafd8be9da9e18
   GeoIP-1.6.12.tar.gz: ac1a6809afbb7624aff2f6e12ceb300b12de1715
