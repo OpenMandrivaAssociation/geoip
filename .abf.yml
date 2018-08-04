@@ -1,6 +1,6 @@
 sources:
-  GeoIP.dat.gz: 07e3dca38b2db9fdd9b22dde21d7a0f6b2244210
-  GeoIPASNum.dat.gz: 0071e93a03f26f8ca645a52e147a6ba1cb9394c7
-  GeoIPv6.dat.gz: 8aa8c02372d61fa6dadb3a407524f846516c7ab6
-  GeoLiteCity.dat.xz: 5f3bcb687b6fd9fac249f2ac8aefc71def8d440a
-  GeoIP-1.6.3.tar.gz: d1d4a9dec402ab52e37807464e518fab7f2e167d
+  GeoIP.dat.gz: 1342a88b7ec340f7047f34de5ed722ac37c38fe0
+  GeoIPASNum.dat.gz: 4ec0df2fd67f7d17d581ad5c1b96aa87d6c838e8
+  GeoIPv6.dat.gz: d561804cda35506d2064232e33a1cda54daed9f2
+  GeoLiteCity.dat.xz: bb7eca125c87d4df7d41035d3eaafd8be9da9e18
+  GeoIP-1.6.12.tar.gz: ac1a6809afbb7624aff2f6e12ceb300b12de1715
