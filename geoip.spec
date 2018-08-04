@@ -6,8 +6,8 @@
 
 Summary:	Find what country an IP address or hostname originates from
 Name:		geoip
-Version:	1.6.3
-Release:	6
+Version:	1.6.12
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.maxmind.com/app/c
@@ -21,6 +21,7 @@ Source6:	http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
 
 BuildRequires:	libtool
 BuildRequires:	pkgconfig(zlib)
+BuildRequires:	gzip-utils
 
 %description
 GeoIP is a C library that enables the user to find the country that any IP
