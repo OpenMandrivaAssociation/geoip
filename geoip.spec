@@ -10,7 +10,7 @@ Version:	1.6.12
 Release:	4
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.maxmind.com/app/c
+Url:		https://www.maxmind.com/app/c
 Source0:	https://github.com/maxmind/geoip-api-c/releases/download/v%{version}/GeoIP-%{version}.tar.gz
 Source1:	http://www.maxmind.com/download/geoip/database/%{oname}.dat.gz
 Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
