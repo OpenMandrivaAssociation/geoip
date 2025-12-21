@@ -17,6 +17,11 @@ Source2:	http://www.maxmind.com/download/geoip/database/LICENSE.txt
 Source3:	http://www.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 Source4:	http://www.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
 Source5:	http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	gzip-utils
